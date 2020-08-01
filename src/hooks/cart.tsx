@@ -38,7 +38,7 @@ const CartProvider: React.FC = ({ children }) => {
     loadProducts();
   }, []);
 
-  console.log(`cart: ${products}`);
+  // console.log(`cart: ${products}`);
 
   const addToCart = useCallback(
     async product => {
@@ -50,7 +50,7 @@ const CartProvider: React.FC = ({ children }) => {
             prod.id === product.id
               ? {
                   ...product,
-                  quantity: prod.quantity++,
+                  quantity: prod.quantity + 1,
                 }
               : prod,
           ),
@@ -92,9 +92,11 @@ const CartProvider: React.FC = ({ children }) => {
           : product,
       );
 
-      // const findQuantity = removeProduct.find(id);
+      // const findQuantity = removeProduct.find(prod => prod.id === id);
+      // // console.log(findQuantity);
       // if (findQuantity?.quantity === 0) {
       //   const deleteProduct = products.filter(prod => prod.id !== id);
+      //   console.log(deleteProduct);
       //   setProducts(deleteProduct);
       // }
 
